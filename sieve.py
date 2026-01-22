@@ -26,6 +26,13 @@ def sieve(stream):
 def primes():
     yield from sieve(integers_starting_from(2))
 
+def twin_primes():
+    last = -1
+    for n in primes():
+        if n - last == 2:
+            yield last, n
+        last = n
+
 if __name__ == '__main__':
     if WANT_TO_GO_HIGHER:
         import sys
@@ -33,6 +40,6 @@ if __name__ == '__main__':
         sys.setrecursionlimit(20000)
         print("New limit:\t{}".format(sys.getrecursionlimit()))
 
-    for p in primes():
+    for p in twin_primes():
         print(p)
         time.sleep(1)
