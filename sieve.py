@@ -21,12 +21,10 @@ def integers_starting_from(n):
 def sieve(stream):
     car = next(stream)
     yield car
-    for n in sieve(filter(lambda x: not divisible(x, car), stream)):
-        yield n
+    yield from sieve(filter(lambda x: not divisible(x, car), stream))
 
 def primes():
-    for prime in sieve(integers_starting_from(2)):
-        yield prime
+    yield from sieve(integers_starting_from(2))
 
 if __name__ == '__main__':
     if WANT_TO_GO_HIGHER:
