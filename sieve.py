@@ -1,7 +1,5 @@
 #! /usr/bin/env python3
 
-import time
-
 """
 Generator to generate the series of prime numbers.
 Implementation of the "sieve of Eratosthenes" from SICP 3.5.2 as a python generator.
@@ -38,8 +36,9 @@ if __name__ == '__main__':
         import sys
         print("Recursion limit:\t{}".format(sys.getrecursionlimit()))
         sys.setrecursionlimit(20000)
-        print("New limit:\t{}".format(sys.getrecursionlimit()))
+        print("New limit:\t\t{}\n".format(sys.getrecursionlimit()))
 
+    import time
     for p in twin_primes():
         print(p)
         time.sleep(1)
